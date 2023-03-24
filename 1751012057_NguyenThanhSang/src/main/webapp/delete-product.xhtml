@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <head>
+        <title>Admin</title>
+    </head>
+    
+    <body>
+        <ui:composition template="baseAdmin.xhtml">
+            <ui:define name="page-content">
+                <div class="modal-dialog" role="document">
+            <h:form class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa Đồ Uống</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <p>Id: #{productBean.productId}</p>
+                    <p>#{pMsg['products.name']}: #{productBean.name}</p>
+                    <p>#{pMsg['products.price']}: #{productBean.price}</p>
+                    <p>#{pMsg['products.sll']}: #{productBean.sll}</p>
+                </div>
+                <div class="modal-footer">
+                    <h:commandButton class="btn btn-secondary" action="product-list?faces-redirect=true" value="Hủy"></h:commandButton>
+                    <h:commandButton class="btn btn-primary" value="Xóa" action="#{productBean.deleteProduct()}"></h:commandButton>
+                </div>
+            </h:form>
+        </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

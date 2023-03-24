@@ -1,0 +1,103 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <!-- header -->
+	<div class="header">
+		<!-- navigation -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<!-- logo -->
+                        <h1>
+                            
+				<a class="navbar-brand" href="QLCF/faces/index.xhtml">Cappuccino
+					<span>Coffee</span>
+				</a>
+			</h1>
+                        <img src="resources/images/logo.jpg" alt="" class="img-responsive" style="height: 100px ; width: 200px" />
+			<!-- //logo -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="clearfix">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="faces/index.xhtml">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item mx-lg-4">
+						<a class="nav-link" href="faces/about.xhtml">About Us</a>
+					</li>
+					<li class="nav-item mx-lg-4">
+						<a class="nav-link" href="faces/menu.xhtml">Menu</a>
+					</li>
+                                    <c:if test="#{facesContext.externalContext.sessionMap.get('user') != null}">
+                                    <li>
+                                        <div class="uk-navbar-item uk-visible" style="color:white;font-size: 16px;font-weight: bold">
+                                            #{facesContext.externalContext.sessionMap.get('user')}
+                                        </div>
+                                    </li>
+                                        <li class="search hidden-xs hidden-sm">
+                                            <div id="module-94" class="uk-navbar-item uk-visible">
+                                             <div class="custom">
+                                                 <a class="uk-icon" href="/QLCF/faces/order.xhtml"><span uk-icon="icon: cart; ratio: 1.2" class="uk-icon">
+                                                         <span class="uk-badge">3</span>
+                                                         <svg width="24" height="24" viewBox="0 0 20 20"> 
+                                                             <circle cx="7.3" cy="17.3" r="1.4">
+
+                                                             </circle> 
+                                                             <circle cx="13.3" cy="17.3" r="1.4">
+
+                                                             </circle> 
+                                                             <polyline fill="none" stroke="#000" points="0 2 3.2 4 5.3 12.5 16 12.5 18 6.5 8 6.5">
+
+                                                             </polyline>
+                                                         </svg>
+                                                     </span>
+                                                 </a>
+                                               </div>
+                                            </div>
+                                        </li>
+
+                                        <li >
+
+                                            <div class="uk-navbar-item uk-visible"> 
+                                                 <h:form>   <h:commandLink action="#{userBean.logout()}" class="uk-button uk-button-default tm-button-default uk-icon">
+                                              LOGOUT
+                                             </h:commandLink>  </h:form>
+
+                                            </div>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="#{facesContext.externalContext.sessionMap.get('user') == null}">
+                                        <li >
+                                            <div class="nav-item mx-lg-4" >
+                                                <a href="/QLCF/faces/login.xhtml" class="uk-button uk-button-default tm-button-default uk-icon">
+                                                    LOGIN
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                        <li >
+
+                                            <div class="nav-item mx-lg-4" >
+                                                <a href="/QLCF/faces/register.xhtml" class="uk-button uk-button-default tm-button-default uk-icon">
+                                                    REGISTER
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                   </c:if>
+				</ul>
+                            </ul>
+			</div>
+		</nav>
+		<!-- //navigation -->
+	</div>
+	<!-- //header -->
+
+</ui:composition>
+

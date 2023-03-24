@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<head>
+    <title>Admin</title>
+
+</head>
+
+<body>
+    <ui:composition template="templates/user/base.xhtml">
+        <ui:define name="banner">
+            <div>
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                        <a href="index.xhtml">Home</a>
+                                </li><li class="breadcrumb-item">
+                                        <a href="menu.xhtml">Menu</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Order</li>
+                        </ol>
+                </nav>
+            </div>
+        </ui:define>
+        <ui:define name="header">
+            <div>
+                <!-- header -->
+	<div class="header">
+		<!-- navigation -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<!-- logo -->
+			<h1>
+				<a class="navbar-brand" href="index.xhtml">Cappuccino
+					<span>Coffee</span>
+				</a>
+			</h1>
+                        <img src="resources/images/logo.jpg" alt="" class="img-responsive" style="height: 100px ; width: 200px" />
+			<!-- //logo -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			    aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            
+                            <ul class="clearfix">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.xhtml">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item mx-lg-4">
+						<a class="nav-link" href="about.xhtml">About Us</a>
+					</li>
+			
+					<li class="nav-item mx-lg-4  active">
+						<a class="nav-link" href="menu.xhtml">Menu</a>
+					</li>
+                                    
+				<c:if test="#{facesContext.externalContext.sessionMap.get('user') != null}">
+                                    <li>
+                                        <div class="uk-navbar-item uk-visible" style="color:white;font-size: 16px;font-weight: bold">
+                                            #{facesContext.externalContext.sessionMap.get('user')}
+                                        </div>
+                                    </li>
+                                        <li class="search hidden-xs hidden-sm">
+                                            <div id="module-94" class="uk-navbar-item uk-visible">
+                                             <div class="custom">
+                                                 <a class="uk-icon" href="/QLCF/faces/order.xhtml"><span uk-icon="icon: cart; ratio: 1.2" class="uk-icon">
+                                                         <span class="uk-badge">3</span>
+                                                         <svg width="24" height="24" viewBox="0 0 20 20"> 
+                                                             <circle cx="7.3" cy="17.3" r="1.4">
+
+                                                             </circle> 
+                                                             <circle cx="13.3" cy="17.3" r="1.4">
+
+                                                             </circle> 
+                                                             <polyline fill="none" stroke="#000" points="0 2 3.2 4 5.3 12.5 16 12.5 18 6.5 8 6.5">
+
+                                                             </polyline>
+                                                         </svg>
+                                                     </span>
+                                                 </a>
+                                               </div>
+                                            </div>
+                                        </li>
+
+                                        <li >
+
+                                            <div class="uk-navbar-item uk-visible"> 
+                                             <h:form>   <h:commandLink action="#{userBean.logout()}" class="uk-button uk-button-default tm-button-default uk-icon">
+                                              LOGOUT
+                                             </h:commandLink>  </h:form>
+
+                                            </div>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="#{facesContext.externalContext.sessionMap.get('user') == null}">
+                                        <li >
+                                            <div class="nav-item mx-lg-4" >
+                                                <a href="/QLCF/faces/login.xhtml" class="uk-button uk-button-default tm-button-default uk-icon">
+                                                    LOGIN
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                        <li >
+
+                                            <div class="nav-item mx-lg-4" >
+                                                <a href="/QLCF/faces/register.xhtml" class="uk-button uk-button-default tm-button-default uk-icon">
+                                                    REGISTER
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                   </c:if>
+				</ul>
+                            </ul>
+			</div>
+		</nav>
+		<!-- //navigation -->
+	</div>
+	<!-- //header -->
+            </div>
+        </ui:define>
+        <ui:define name="contact">
+            <div></div>
+        </ui:define>
+        <ui:define name="content">
+            
+            <div id="app" class="uk-section-muted">
+                <div>
+                    <div data-v-300db8a7="" class="uk-offcanvas-content">
+
+                        <div data-v-300db8a7="" uk-height-viewport="offset-top: true"
+                            class="uk-container tch-container uk-margin-small-bottom"
+                            style="padding: 20px; box-sizing: border-box; min-height: calc(100vh);">
+
+                            <div data-v-300db8a7="" uk-grid="" class="uk-grid-small uk-grid">
+                                <div data-v-300db8a7="" class="uk-width-2-3 uk-width-1-1 uk-first-column">
+                                    <div data-v-300db8a7="" uk-grid="" class="uk-grid-small uk-grid">
+                                        <div data-v-300db8a7="" class="uk-width-1-3 uk-width-1-3 uk-first-column">
+                                            <div data-v-02ec8735="" data-v-300db8a7="">
+
+                                                <div data-v-02ec8735=""
+                                                    uk-sticky="offset: 90; bottom: #stop-uk-sticky; media: (min-width: 824px);"
+                                                    class="uk-card uk-card-default uk-card-small uk-card-body uk-visible uk-sticky uk-active uk-sticky-fixed uk-sticky-below"
+                                                    style="z-index: 0; position: fixed; top: 170px; width: 250px;">
+                                                    <ul data-v-02ec8735=""
+                                                        uk-scrollspy-nav="closest: li; scroll: true; cls: tch-active; offset: 70;"
+                                                        class="uk-nav uk-nav-default tch-margin-small-bottom"
+                                                        style="margin-left: 0px; margin-right: 0px;">
+                                                        <c:forEach var="cate" items="#{cateBean.categorys}">
+                                                            <li data-v-02ec8735="" class="">
+                                                                <a data-v-02ec8735=""
+                                                                    href="##{cate.tag}">#{cate.name}</a>
+                                                            </li>
+                                                        </c:forEach>
+
+                                                    </ul>
+                                                </div>
+                                                <div class="uk-sticky-placeholder" style="height: 370px; margin: 0px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-v-300db8a7="" class="uk-width-2-3 uk-width-2-3 tch-fix-margin-search">
+                                            <c:forEach var="cate" items="#{cateBean.categorys}">
+                                                <div data-v-300db8a7="" id="#{cate.tag}" class="menu">
+                                                    <div data-v-300db8a7="" class="uk-width-1-1">
+                                                        <h3 class="block_menu_item_title"><span
+                                                                class="line_after_heading section_heading" style="color:#EA8025">#{cate.name}</span>
+                                                        </h3>
+                                                        <ul data-v-300db8a7="" class="uk-list">
+                                                            <c:forEach var="product"
+                                                                items="#{productBean.getProductByCategoryId(cate.id)}">
+                                                     
+                                                                <li>
+                                           
+                                                                    <article data-toggle="modal" 
+                                                                             data-target="#basicModal#{product.id}" 
+                                                                             class="uk-comment uk-visible-toggle product-menu" 
+                                                                             style="background-color: white; padding: 12px;"
+                                                                            
+                                                                          >                                                                          
+                                                                            <header class="uk-position-relative">
+                                                                                <div uk-grid="" class="uk-grid-medium uk-flex-top uk-grid">
+                                                                                    <div class="uk-width-auto uk-first-column">
+                                                                                        <img src="resources/images/k1.png"
+                                                                                            width="80" height="80" alt="" class="uk-comment-avatar" />
+                                                                                    </div>
+                                                                                <div class="uk-width-expand" style="padding-left: 10px; background-color: white">
+                                                                                        <p class="uk-margin-remove">
+                                                                                            <a class="uk-link-reset">
+                                                                                                <b> #{product.name}</b>
+                                                                                            </a>
+                                                                                        </p>
+                                                                                        <p class="uk-margin-remove uk-text-meta">
+                                                                                            
+                                                                                        </p> 
+                                                                                    <a class="uk-link-reset">#{product.price} $</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="uk-position-bottom-right"><span uk-icon="icon: plus-circle; ratio: 1.5"
+                                                                                        class="uk-text-primary uk-icon"><svg width="30" height="30" viewBox="0 0 20 20">
+                                                                                            <circle fill="none" stroke="#000" stroke-width="1.1" cx="9.5" cy="9.5" r="9">
+                                                                                            </circle>
+                                                                                            <line fill="none" stroke="#000" x1="9.5" y1="5" x2="9.5" y2="14"></line>
+                                                                                            <line fill="none" stroke="#000" x1="5" y1="9.5" x2="14" y2="9.5"></line>
+                                                                                        </svg></span>
+                                                                                </div>
+                                                                            </header>
+                                                                        </article>                                           
+                                                                </li>                                                     
+                                                            </c:forEach>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </c:forEach>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-v-300db8a7="" class="uk-width-1-3 uk-width-1-1">
+                                <div data-v-300db8a7=""
+                                    class="uk-position-fixed uk-position-bottom uk-position-z-index uk-overlay uk-overlay-default uk-padding-remove uk-hidden"
+                                    style="margin-bottom: 20px; height: 28px;">
+                                    <nav data-v-300db8a7="" uk-navbar="" class="uk-navbar-container uk-navbar"
+                                        style="position: relative; z-index: 980;"><button data-v-300db8a7=""
+                                            type="button"
+                                            class="tch-text-white tch-text-bold uk-button uk-button-primary uk-width-1-1 uk-padding-remove-left uk-padding-remove-right">
+                                            <div data-v-300db8a7="" uk-grid="" class="uk-grid-small uk-grid">
+                                                <div data-v-300db8a7="" class="tch-text-white uk-width-1-3"></div>
+                                                <div data-v-300db8a7="" class="tch-text-white uk-width-1-3">Cart
+                                                </div>
+                                                <div data-v-300db8a7="" class="tch-text-white uk-width-1-3">13$
+                                                </div>
+                                            </div>
+                                        </button></nav>
+                                </div>
+                                <div data-v-300db8a7="" class="uk-visible">
+                                    <div data-v-2c4ae852="" data-v-300db8a7="">
+                                        <div data-v-2c4ae852="" id="container_sticky"
+                                            class="uk-card uk-card-default uk-card-body uk-card-small uk-padding-remove uk-sticky uk-active uk-sticky-fixed uk-sticky-below"
+                                            style="z-index: 0; position: fixed; top: 170px; width: 300px; right: 5%">
+                                            <div data-v-2c4ae852="" class="uk-card-header uk-visible"><button
+                                                    data-v-2c4ae852="" type="button"
+                                                    class="tch-text-bold uk-button uk-button-primary uk-width-1-1 uk-padding-remove-left uk-padding-remove-right">
+                                                    Order List
+                                                    <!----></button></div>
+                                            <div data-v-2c4ae852="" class="cart-sticky">
+                                                <div data-v-2c4ae852="">
+                                                    <div data-v-2c4ae852="" class="uk-card-body">
+                                                        <div data-v-2c4ae852="" uk-grid=""
+                                                            class="uk-grid-small uk-padding-remove-bottom uk-grid"
+                                                            style="cursor: pointer;">
+                                                            <div data-v-2c4ae852=""
+                                                                class="tch-text-bold uk-text-center uk-width-auto uk-first-column">
+                                                                <span data-v-2c4ae852=""
+                                                                    class="uk-label uk-label-warning">1</span></div>
+                                                            <dl data-v-2c4ae852=""
+                                                                class="uk-description-list uk-width-expand">
+                                                                <dd data-v-2c4ae852="" class="tch-text-bold">Americano</dd>
+                                                                <dd data-v-2c4ae852="" class="uk-text-small"><span
+                                                                        data-v-2c4ae852=""></span> </dd>
+                                                                <dd data-v-2c4ae852="" class="uk-text-small"><span
+                                                                        data-v-2c4ae852=""></span></dd>
+                                                            </dl>
+                                                            <div data-v-2c4ae852="" class="uk-width-auto">3$
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-v-2c4ae852=""
+                                                        class="uk-heading-divider uk-margin-left uk-margin-right uk-padding-remove-bottom">
+                                                    </div>
+                                                </div>
+                                                <div data-v-2c4ae852="">
+                                                    <div data-v-2c4ae852="" class="uk-card-body">
+                                                        <div data-v-2c4ae852="" uk-grid=""
+                                                            class="uk-grid-small uk-padding-remove-bottom uk-grid"
+                                                            style="cursor: pointer;">
+                                                            <div data-v-2c4ae852=""
+                                                                class="tch-text-bold uk-text-center uk-width-auto uk-first-column">
+                                                                <span data-v-2c4ae852=""
+                                                                    class="uk-label uk-label-warning">1</span></div>
+                                                            <dl data-v-2c4ae852=""
+                                                                class="uk-description-list uk-width-expand">
+                                                                <dd data-v-2c4ae852="" class="tch-text-bold">Coffee Macchiato</dd>
+                                                                <dd data-v-2c4ae852="" class="uk-text-small"><span
+                                                                        data-v-2c4ae852=""></span> </dd>
+                                                                <dd data-v-2c4ae852="" class="uk-text-small"><span
+                                                                        data-v-2c4ae852=""></span></dd>
+                                                            </dl>
+                                                            <div data-v-2c4ae852="" class="uk-width-auto">5$
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-v-2c4ae852=""
+                                                        class="uk-heading-divider uk-margin-left uk-margin-right uk-padding-remove-bottom">
+                                                    </div>
+                                                </div>
+                                                <div data-v-2c4ae852="">
+                                                    <div data-v-2c4ae852="" class="uk-card-body">
+                                                        <div data-v-2c4ae852="" uk-grid=""
+                                                            class="uk-grid-small uk-padding-remove-bottom uk-grid"
+                                                            style="cursor: pointer;">
+                                                            <div data-v-2c4ae852=""
+                                                                class="tch-text-bold uk-text-center uk-width-auto uk-first-column">
+                                                                <span data-v-2c4ae852=""
+                                                                    class="uk-label uk-label-warning">1</span></div>
+                                                            <dl data-v-2c4ae852=""
+                                                                class="uk-description-list uk-width-expand">
+                                                                <dd data-v-2c4ae852="" class="tch-text-bold">Cafe Late</dd>
+                                                                <dd data-v-2c4ae852="" class="uk-text-small"><span
+                                                                        data-v-2c4ae852=""></span> </dd>
+                                                                <dd data-v-2c4ae852="" class="uk-text-small"><span
+                                                                        data-v-2c4ae852=""></span></dd>
+                                                            </dl>
+                                                            <div data-v-2c4ae852="" class="uk-width-auto">5$
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                                <div data-v-2c4ae852="" class="uk-card-footer">
+                                                    <div data-v-2c4ae852="" uk-grid=""
+                                                        class="uk-grid-small uk-padding-remove-bottom uk-grid">
+                                                        <div data-v-2c4ae852="" class="uk-width-expand uk-first-column"
+                                                            style="margin-top: 5px;">Total:</div>
+                                                        <div data-v-2c4ae852=""
+                                                            class="uk-width-auto uk-text-large tch-text-bold">
+                                                        </div>
+                                                        <div data-v-2c4ae852="" class="uk-width-expand uk-first-column">
+                                                            
+                                                        </div>
+                                                        <div data-v-2c4ae852="" class="uk-width-auto">13$</div>
+                                                    </div>
+                                                    <!---->
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="uk-sticky-placeholder" style="height: 66px; margin: 0px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!---->
+
+                        <div data-v-300db8a7=""></div>
+                        <div data-v-1f7c9acf="" data-v-300db8a7="" id="advertisement" uk-modal="" class="uk-modal">
+                            <div data-v-1f7c9acf="" class="uk-modal-dialog">
+                                <div data-v-1f7c9acf=""
+                                    uk-slideshow="animation: push;min-height: 550; max-height: 1500; "
+                                    autoplay-interval="3000" pause-on-hover="true"
+                                    class="uk-modal-body uk-padding-remove uk-slideshow">
+                                    <ul data-v-1f7c9acf="" class="uk-slideshow-items uk-dark uk-height-large"
+                                        style="height: 550px;"></ul>
+                                    <div data-v-1f7c9acf="" class="uk-light">
+                                        <ul data-v-1f7c9acf="" class="uk-slideshow-nav uk-dotnav uk-flex-center"
+                                            style="position: relative; top: 40px;"></ul> <a data-v-1f7c9acf=""
+                                            uk-icon="icon: chevron-left; ratio: 3.5" href="#"
+                                            uk-slideshow-item="previous"
+                                            class="uk-position-center-left-out uk-position-small uk-visible uk-icon"><svg
+                                                width="70" height="70" viewBox="0 0 20 20">
+                                                <polyline fill="none" stroke="#000" stroke-width="1.03"
+                                                    points="13 16 7 10 13 4"></polyline>
+                                            </svg></a> <a data-v-1f7c9acf="" uk-icon="icon: chevron-right; ratio: 3.5"
+                                            href="#" uk-slideshow-item="next"
+                                            class="uk-position-center-right-out uk-position-small uk-visible uk-icon"><svg
+                                                width="70" height="70" viewBox="0 0 20 20">
+                                                <polyline fill="none" stroke="#000" stroke-width="1.03"
+                                                    points="7 4 13 10 7 16">
+                                                </polyline>
+                                            </svg></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            
+           
+            
+            <c:forEach var="product" items="#{productBean.products}">
+            
+               <div data-v-4c8f5598="" id="basicModal#{product.id}" class="uk-modal uk-open">            
+               <div data-v-4c8f5598="" class="uk-modal-dialog modal-dialog" style="width: 628px; display: block">
+                    <button data-v-4c8f5598="" type="button" data-dismiss="modal"
+                        uk-close="" class="uk-modal-close-default uk-close uk-icon">
+                        <svg width="14" height="14" viewBox="0 0 14 14"
+                           >
+                            <line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line>
+                            <line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line>
+                        </svg>
+                    </button>
+                    <div data-v-4c8f5598="" class="uk-modal-header">
+                        <img data-v-4c8f5598=""
+                            src="resources/images/k1.png" alt="#{product.name}"
+                            width="80" height="80" style="margin-right: 10px; float: left;"/> 
+                        <span data-v-4c8f5598=""
+                            class="uk-text-top"> 
+                            <dl data-v-4c8f5598="">
+                                <dt data-v-4c8f5598="" class="tch-text-bold">#{product.name}</dt> 
+                            </dl>
+                        </span>
+                    </div>
+                    <div data-v-4c8f5598="" class="uk-modal-footer">
+            
+                        <div data-v-4c8f5598="" uk-grid="" class="uk-grid">
+                            <div data-v-4c8f5598="" class="uk-width-1-2 uk-first-column">
+                                <div data-v-4c8f5598="" class="uk-flex">
+                                    <button data-v-4c8f5598="" type="button" uk-icon="minus" 
+                                            onclick="#{productBean.minus(product.id)}"
+                                        class="uk-icon-button tch-button-add-minus uk-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20"
+                                           >
+                                            <rect height="1" width="18" y="9" x="1"></rect>
+                                        </svg>
+                                    </button>
+                                    <div data-v-4c8f5598="" style="margin-left: 10px; width: 20px; padding-top: 5px;">
+                                        
+                                        <span     data-v-4c8f5598="" class="uk-flex uk-flex-center">
+                                           #{productBean.count}
+                                        </span>
+                                    </div> 
+                                    <button data-v-4c8f5598=""
+                                        type="button" uk-icon="plus"
+                                        class="uk-icon-button tch-button-add-minus uk-margin-small-left uk-icon"
+                                        style="margin-left: 15px;"><svg width="20" height="20" viewBox="0 0 20 20"
+                                            >
+                                            <rect x="9" y="1" width="1" height="17"></rect>
+                                            <rect x="1" y="9" width="17" height="1"></rect>
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div data-v-4c8f5598="" class="uk-width-1-2"><button data-v-4c8f5598="" type="button"
+                                    class="uk-button uk-button-primary uk-right uk-width-1-1 tch-margin-button"
+                                    style="max-width: 400px; float: right;">
+                                    <div data-v-4c8f5598="" uk-grid="" class="uk-grid-small uk-grid">
+                                        <span data-v-4c8f5598="" class="uk-text-left tch-text-bold tch-text-white uk-width-expand uk-visible uk-first-column" 
+                                              style="background-color:#ea8025;"
+                                              >#{productBean.count} Add To Cart
+                                        </span>
+                                        <span data-v-4c8f5598=""
+                                            class="uk-text-left tch-text-bold tch-text-white uk-width-expand uk-hidden"></span> <span
+                                            data-v-4c8f5598=""
+                                            class="uk-text-right tch-text-bold tch-text-white uk-text-lowercase uk-width-auto">#{product.price} $</span>
+                                    </div>
+                                </button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </c:forEach>
+            
+                <link rel="stylesheet" href="https://order.thecoffeehouse.com/css/please-wait.css" />
+                <link rel="stylesheet" href="css/order.css" />
+                <link rel="stylesheet" href="https://order.thecoffeehouse.com/css/app.css" />
+       
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://unpkg.com/popper.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+                <style>
+                    .modal-backdrop.show{
+                        display: none !important;
+                    }
+                    .section_heading {
+                        float:unset;
+                    }
+                    html {
+                        font-family: "Open Sans";
+                        font-size: 16px;
+                        font-weight: normal;
+                        line-height: 1.5;
+                        -webkit-text-size-adjust: 100%;
+                        background: #fff;
+                        color: #333333
+                    }
+
+                    .uk-list ul {
+                        padding-left: 0 !important
+                    }
+
+                    .uk-width-expand {
+                        background-color: white;
+                    }
+
+                    article.uk-comment {
+                        padding: 12px;
+                        height: 100px;
+                    }
+                </style>
+              
+        </ui:define>
+    </ui:composition>
+</body>
+
+</html>

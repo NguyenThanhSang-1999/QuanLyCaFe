@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    
+    <title>SB Admin - Dashboard</title>
+
+    <h:outputStylesheet name="all.css" library="css" />
+    <h:outputStylesheet name="all.min.css" library="css" />
+    <h:outputStylesheet name="fontawesome.min.css" library="css" />
+    <h:outputStylesheet name="fontawesome.css" library="css" />
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <h:outputStylesheet name="sb-admin-2.min.css" library="css" />
+    <h:outputStylesheet name="sb-admin-2.css" library="css" />
+
+    <f:loadBundle var="pMsg" basename="products"/>
+
+</h:head>
+    <h:body>
+        <div id="wrapper">
+           <ui:insert name="sidebar">
+               <ui:include src="sidebar.xhtml"/>
+            </ui:insert>
+            
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <ui:insert name="topbar">
+                        <ui:include src="topbar.xhtml"/>
+                    </ui:insert>
+                    
+                      <!-- Begin Page Content -->
+                    <ui:insert name="page-content">
+                        <ui:include src="page-content.xhtml"/>
+                    </ui:insert>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+        <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    
+    
+     <!-- Page level plugins -->
+        <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    <style>
+        .bg-gradient-primary {
+    background-color: #212120;
+    background-image: unset;
+}
+    </style>
+    </h:body>
+    
+    
+</html>

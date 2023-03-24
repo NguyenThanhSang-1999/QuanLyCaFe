@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <head>
+        <title>Admin</title>
+    </head>
+    
+    <body>
+        <ui:composition template="baseAdmin.xhtml">
+            <ui:define name="page-content">
+                <div class="container-fluid">
+
+               
+                    
+                    <!-- Page Heading -->
+                    
+                    <h1 class="h3 mb-2 text-gray-800">#{pMsg['products.admin']}</h1>
+     
+                    <!-- DataTales Example -->
+                    <h:link value="Add Product" outcome="create-product?faces-redirect=true" class="btn btn-success" style="margin-bottom: 5px; background-color:#007bff">
+    
+                    </h:link>
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#{pMsg['products.id']}</th>
+                                            <th>#{pMsg['products.name']}</th>
+                                            <th>#{pMsg['products.price']}</th>
+                                            <th>#{pMsg['products.sll']}</th>
+                                            <th class="text-center">#{pMsg['products.img']}</th>
+                                            <th>#{pMsg['products.cate']}</th>
+                                            <th  class="text-center">#{pMsg['products.update']}</th>
+                                            <th  class="text-center">#{pMsg['products.delete']}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="product" items="#{productBean.products}">
+                                            <tr>
+                                                <td>#{product.id}</td>
+                                                <td>#{product.name}</td>
+                                                <td>#{product.price}</td>
+                                                <td>#{product.sll}</td>
+                                                <td class="text-center">
+                                                    <a href="http://localhost:8080/QLCF/faces/img/#{product.image}" 
+                                                       style="display:#{(product.image) == null ?'none':'block'}"
+                                                       >Xem hình</a>
+                                                </td>
+                                                <td>#{product.category.name}</td>
+                                                <td class="text-center">
+                                                    <h:link includeViewParams="true" outcome="update-product?faces-redirect=true">
+                                                        <f:param name="product_id" value="#{product.id}"/>
+                                                        <i class="fas fa-tools"></i>
+                                                    </h:link>
+                                                </td>
+                                                <td class="text-center">
+                                                    <h:link includeViewParams="true" outcome="delete-product?faces-redirect=true">
+                                                        <f:param name="product_id" value="#{product.id}"/>
+                                                        <i class="fas fa-trash-alt" style="color: #ff474c"></i>
+                                                    </h:link>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
